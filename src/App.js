@@ -5,7 +5,6 @@ import './App.css';
 import Navbar from './Pages/Navbar';
 
 const MainLayout = () => {
-
   return (
         <Suspense
           fallback={'Loading...'}
