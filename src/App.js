@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import Routes from "./routes";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Navbar from "./pages/Navbar";
+import Navbar from "./Pages/Navbar";
 
 const MainLayout = () => {
   return (
