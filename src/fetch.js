@@ -7,6 +7,10 @@ methods.get = function (url, param) {
     return request('GET', url, param)
 }
 
+methods.post = function (url, data, param) {
+    return request('POST', url, param, data)
+}
+
 methods.update = function (url, data, param) {
     return request('PUT', url, param, data)
 }

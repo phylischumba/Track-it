@@ -1,4 +1,4 @@
-const env = 'dev';
+const env = 'prod';
 const environments = {
     dev: 'http://127.0.0.1:3000 ',
     prod: 'http://67.205.165.162/api/v1'
