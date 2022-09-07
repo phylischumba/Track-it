@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../../components/Modal";
+import styled from "styled-components";
 
 const ViewCharges = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -29,7 +30,32 @@ const ViewCharges = () => {
           </tr>
         </table>
       </div>
-      <Modal openModal={openModal} handleModal={handleModal} />
+      <Modal openModal={openModal} handleModal={handleModal}>
+        <Form>
+          <Header>
+            <Title>Add user</Title>
+            <Icon onClick={handleModal}>x</Icon>
+          </Header>
+
+          <Box>
+            <Label>Username</Label>
+            <Input name="name" type="text" />
+          </Box>
+          <Box>
+            <Label>Amount</Label>
+            <Input name="amount" type="text" />
+          </Box>
+          <Box>
+            <Label>Status</Label>
+            <Select>
+              <option value="paid">Paid</option>
+              <option value="unpaid">Unpaid</option>
+            </Select>
+          </Box>
+
+          <Button type="submit">Add</Button>
+        </Form>
+      </Modal>
     </>
   );
 };

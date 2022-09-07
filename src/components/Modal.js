@@ -1,38 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 const Modal = (props) => {
-  const { openModal, handleModal } = props;
+  const { openModal, handleModal, children } = props;
   if (!openModal) {
     return null;
   }
-  return (
-    <Wrapper>
-      <Form>
-        <Header>
-          <Title>Add user</Title>
-          <Icon onClick={handleModal}>x</Icon>
-        </Header>
-
-        <Box>
-          <Label>Username</Label>
-          <Input name="name" type="text" />
-        </Box>
-        <Box>
-          <Label>Amount</Label>
-          <Input name="amount" type="text" />
-        </Box>
-        <Box>
-          <Label>Status</Label>
-          <Select>
-            <option value="paid">Paid</option>
-            <option value="unpaid">Unpaid</option>
-          </Select>
-        </Box>
-
-        <Button type="submit">Add</Button>
-      </Form>
-    </Wrapper>
-  );
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default Modal;
