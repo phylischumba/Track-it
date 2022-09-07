@@ -1,7 +1,5 @@
 import { request } from "./default";
 
-
-
 const methods = {};
 
 
