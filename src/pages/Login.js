@@ -76,7 +76,7 @@ const Input = styled.input`
   border-radius:4px;
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid blue;
+  border: 1px solid rgba(1,1,1,0.5);
   font-size: 12px;
 `;
 const Box = styled.div`
