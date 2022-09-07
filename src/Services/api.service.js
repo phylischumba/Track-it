@@ -8,3 +8,7 @@ export const getMeetings = async () => {
 export const login = async (loginData) => {
     return await methods.post('/login', loginData)
 }
+
+export const createMeeting = async (data) => {
+    return await methods.post('/meetings', data)
+}

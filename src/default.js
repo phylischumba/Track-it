@@ -25,5 +25,5 @@ export const request = async (method = 'GET', url, param, data) => {
 
 
     let response = await fetch(mainUrl, settings);
-    return response.json()
+    return { data: await response.json(), status: response.status, message: response.statusText }
 }

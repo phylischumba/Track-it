@@ -9,10 +9,12 @@ const Login = () => {
   const [formValues, setFormValues] = useState({
     name: "",
   });
+
+  const [loginState, setLoginState] = useState(false);
+
   const [nameErr, setNameErr] = useState("");
   const handleChange = (e) => {
     const { value, name } = e.target;
-    setNameErr("");
     setFormValues({ ...formValues, [name]: value });
   };
   const handleNavigate = () => {
@@ -31,16 +33,20 @@ const Login = () => {
 
       console.log(loginData);
       login(loginData).then(response => {
-        if (response.data) {
+        if (response.data.data) {
           // save use to local storage
-          saveToLocalStorage(JSON.stringify(response.data), 'trackItAuth');
+          saveToLocalStorage(JSON.stringify(response.data.data), 'trackItAuth');
           // navigate to meetings
           setTimeout(() => {
             handleNavigate();
           }, 500)
+        } else {
+          // failed login
+          setLoginState(true);
         }
       }).catch(error => {
         console.log(error);
+        setLoginState(true);
       })
     }
   };
@@ -55,6 +61,7 @@ const Login = () => {
           <Input name="name" type="text" onChange={handleChange} />
         </Box>
         <Box>{nameErr && <Error>{nameErr}</Error>}</Box>
+        <Box>{loginState && (<Error><small>Invalid username</small> </Error>)}</Box>
         <Button type="submit">Sign in</Button>
       </Form>
     </Wrapper>
