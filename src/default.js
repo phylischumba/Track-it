@@ -1,6 +1,6 @@
 import baseUrl from "./config";
 
-export const request = (method = 'GET', url, param, data) => {
+export const request = async (method = 'GET', url, param, data) => {
 
     const settings = {
         method,
@@ -22,5 +22,6 @@ export const request = (method = 'GET', url, param, data) => {
     }
 
 
-    return fetch(mainUrl, settings)
+    let response = await fetch(mainUrl, settings);
+    return response.json()
 }
