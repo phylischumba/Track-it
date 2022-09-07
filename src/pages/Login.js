@@ -34,7 +34,6 @@ const Login = () => {
         if (response.data) {
           // save use to local storage
           saveToLocalStorage(JSON.stringify(response.data), 'trackItAuth');
-
           // navigate to meetings
           setTimeout(() => {
             handleNavigate();

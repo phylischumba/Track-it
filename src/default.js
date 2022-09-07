@@ -1,4 +1,5 @@
 import baseUrl from "./config";
+import { getAccessToken } from "./Utils";
 
 export const request = async (method = 'GET', url, param, data) => {
 
@@ -6,10 +7,11 @@ export const request = async (method = 'GET', url, param, data) => {
         method,
         headers: {
             Accept: 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getAccessToken()
         },
         redirect: 'follow',
-        referrerPolicy: 'no-referrer'
+        referrerPolicy: 'no-referrer',
     }
 
     if (data) {
