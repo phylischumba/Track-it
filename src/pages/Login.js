@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { getMeetings } from "../Services/api.service";
+import { getMeetings, login } from "../Services/api.service";
+import { saveToLocalStorag, saveToLocalStorage } from "../Utils";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -17,14 +18,31 @@ const Login = () => {
   const handleNavigate = () => {
     navigate("/meeting-list");
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formValues.value) {
       setNameErr("Username is required");
     }
     if (formValues.name) {
-      setNameErr("");
-      handleNavigate();
+      const loginData = {
+        username: formValues.name
+      }
+
+      console.log(loginData);
+      login(loginData).then(response => {
+        if (response.data) {
+          // save use to local storage
+          saveToLocalStorage(JSON.stringify(response.data), 'trackItAuth');
+
+          // navigate to meetings
+          setTimeout(() => {
+            handleNavigate();
+          }, 500)
+        }
+      }).catch(error => {
+        console.log(error);
+      })
     }
   };
 
