@@ -1,5 +1,5 @@
 import baseUrl from "./config";
-import { getAccessToken } from "./utils";
+import { getAccessToken } from "./Utils";
 
 export const request = async (method = "GET", url, param, data) => {
   const settings = {
