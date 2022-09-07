@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Meetings from "./Pages/Meetings/Meetings";
-import AddMeeting from "./Pages/Meetings/AddMeeting";
+import Meetings from "./pages/Meetings/Meetings";
+import AddMeeting from "./pages/Meetings/AddMeeting";
 import Login from "./pages/Login";
-import ViewCharges from "./Pages/Charges/ViewCharges";
+import ViewCharges from "./pages/Charges/ViewCharges";
 
 const routes = [
   {

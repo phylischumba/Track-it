@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { getMeetings, login } from "../Services/api.service";
-import { saveToLocalStorag, saveToLocalStorage } from "../Utils";
+import { login } from "../services/api.service";
+import { saveToLocalStorage } from "../utils";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -32,8 +32,9 @@ const Login = () => {
       console.log(loginData);
       login(loginData).then(response => {
         if (response.data) {
+          console.log(response.data.data)
           // save use to local storage
-          saveToLocalStorage(JSON.stringify(response.data), 'trackItAuth');
+          saveToLocalStorage(JSON.stringify(response.data.data), 'trackItAuth');
           // navigate to meetings
           setTimeout(() => {
             handleNavigate();
