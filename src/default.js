@@ -21,7 +21,6 @@ export const request = async (method = "GET", url, param, data) => {
   if (param) {
     mainUrl += "?" + param;
   }
-
   let response = await fetch(mainUrl, settings);
   return {
     status: response.status,

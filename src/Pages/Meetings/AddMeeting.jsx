@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { createMeeting } from "../../Services/api.service";
 
 const StyledDiv = styled.div`
   width: 100%;
@@ -39,10 +40,49 @@ const StyledForm = styled.form`
   flex-direction: column;
   padding: 16px 0;
 `;
+
+const Box = styled.div`
+  margin: 10px 0;
+  width: 100%;
+`;
+
+const Success = styled.small`
+  color: green;
+`;
+
+const Error = styled.small`
+  color: red;
+`;
+
 const AddMeeting = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      title: name,
+      scheduled_at: date
+    }
+    createMeeting(data).then(response => {
+      // set saving state
+      if (response.status === 201) {
+        setError(false);
+        setSuccess(true);
+      }else{
+        setError(true);
+      }
+
+    }).catch(error => {
+      console.log(error);
+      setError(true);
+      setSuccess(false);
+
+    })
+  }
   return (
     <StyledDiv>
       <h2>Create meeting</h2>
@@ -63,9 +103,12 @@ const AddMeeting = () => {
           value={date}
           onChange={e => setDate(e.target.value)}
         />
-        <StyledButton onClick={() => console.log(name, date)}>
+        <StyledButton onClick={(e) => handleSubmit(e)}>
           Save
         </StyledButton>
+
+        {success && <Box><Success>Meeting created successfully</Success></Box>}
+        {error && <Box><Error>Failed to create meeting</Error></Box>}
       </StyledForm>
     </StyledDiv>
   );
