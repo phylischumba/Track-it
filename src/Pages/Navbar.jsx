@@ -9,14 +9,9 @@ const StyledNav = styled.nav`
   font-weight: 900;
   display: flex;
   align-items: center;
-`
+`;
 const Navbar = () => {
-    return(
-        <StyledNav>
-            Track-It
-        </StyledNav>
-    )
-
-}
+  return <StyledNav>Track-It</StyledNav>;
+};
 
 export default Navbar;

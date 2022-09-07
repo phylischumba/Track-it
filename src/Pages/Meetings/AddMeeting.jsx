@@ -35,23 +35,37 @@ const StyledInput = styled.input`
 `;
 
 const StyledForm = styled.form`
-display: flex;
-flex-direction: column;
-padding: 16px 0;
-`
+  display: flex;
+  flex-direction: column;
+  padding: 16px 0;
+`;
 const AddMeeting = () => {
-  const [name, setName] = useState('');
-  const [date, setDate] = useState('');
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
 
   return (
     <StyledDiv>
       <h2>Create meeting</h2>
       <StyledForm>
         <label htmlFor="name">Name:</label>
-        <StyledInput type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+        <StyledInput
+          type="text"
+          id="name"
+          name="name"
+          value={name}
+          onChange={e => setName(e.target.value)}
+        />
         <label htmlFor="date">Date:</label>
-        <StyledInput type="date" id="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
-        <StyledButton onClick={() => console.log(name,date)}>Save</StyledButton>
+        <StyledInput
+          type="date"
+          id="date"
+          name="date"
+          value={date}
+          onChange={e => setDate(e.target.value)}
+        />
+        <StyledButton onClick={() => console.log(name, date)}>
+          Save
+        </StyledButton>
       </StyledForm>
     </StyledDiv>
   );
