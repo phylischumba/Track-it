@@ -54,7 +54,7 @@ const ListofMeeting = () => {
           <td>Frontend meetup</td>
           <td>12th Sept 2022</td>
           <td className="tableData">
-            <Button onClick={handleRoute}>View charges</Button>
+            <StyledButton onClick={handleRoute}>View charges</StyledButton>
           </td>
         </tr>
         <tr>

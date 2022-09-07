@@ -5,7 +5,7 @@ const Modal = (props) => {
   if (!openModal) {
     return null;
   }
-  return <Wrapper>{children}</Wrapper>;
+  return <Wrapper onClick={handleModal}>{children}</Wrapper>;
 };
 
 export default Modal;

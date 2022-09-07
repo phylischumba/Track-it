@@ -12,10 +12,10 @@ const ViewCharges = () => {
   return (
     <>
       <div className="meetings-list">
-        <div>
-          <h3>List of users</h3>
-          <button onClick={handleModal}>Add user</button>
-        </div>
+        <FormHeader>
+          <h3>List of users and charges</h3>
+          <Button onClick={handleModal}>Add user</Button>
+        </FormHeader>
 
         <table className="table">
           <tr>
@@ -30,7 +30,13 @@ const ViewCharges = () => {
           </tr>
         </table>
       </div>
-      <Modal openModal={openModal} handleModal={handleModal}>
+      <Modal
+        openModal={openModal}
+        handleModal={handleModal}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <Form>
           <Header>
             <Title>Add user</Title>
@@ -67,16 +73,36 @@ const Header = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+const Button = styled.button`
+  background: #2a45cd;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  width: 8%;
+  cursor: pointer;
+  margin-top: 8px;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
 const Title = styled.h2``;
-const Error = styled.p`
-  color: red;
+const FormHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  align-items: center;
+  @media only screen and (max-width: 767px) : {
+    flex-direction: column;
+    padding-bottom: 16px;
+  }
 `;
 const Icon = styled.h2`
   font-size: 16px;
   cursor: pointer;
 `;
 const Form = styled.form`
-  width: 70%;
+  width: 50%;
   text-align: left;
   border-radius: 5px;
   box-shadow: 0 0 3px;
@@ -101,17 +127,6 @@ const Input = styled.input`
 const Box = styled.div`
   margin: 10px 0;
   width: 100%;
-`;
-const Button = styled.button`
-  width: 100%;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  background-color: blue;
-  padding: 10px 8px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
 `;
 
 const Select = styled.select`
