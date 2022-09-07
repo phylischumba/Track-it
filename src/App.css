@@ -29,3 +29,6 @@ th {
   border: 1px solid #e3e3e3;
   padding: 8px;
 }
+.tableData {
+  text-align: center;
+}
