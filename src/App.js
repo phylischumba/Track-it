@@ -1,12 +1,16 @@
+import React, { Suspense } from "react";
+import Routes from "./routes";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Login from "./pages/Login";
 
-function App() {
+const MainLayout = () => {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <Suspense fallback={"Loading..."}>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </Suspense>
   );
-}
+};
 
-export default App;
+export default MainLayout;

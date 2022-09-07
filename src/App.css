@@ -3,3 +3,29 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.App {
+  text-align: center;
+}
+.meetings-list {
+  width: 100vh;
+  height: 100vh;
+  padding: 24px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.header {
+  text-align: left;
+  margin-bottom: 8px;
+  border: 1px solid #e3e3e3;
+}
+
+td,
+th {
+  border: 1px solid #e3e3e3;
+  padding: 8px;
+}
