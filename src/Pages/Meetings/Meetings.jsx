@@ -17,9 +17,23 @@ const StyledHeader = styled.h2`
     margin-bottom: 8px;
   }
 `;
+const Button = styled.button`
+  padding: 4px 16px;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #2a45cd;
+`;
 
 const ListofMeeting = () => {
   let navigate = useNavigate();
+
+  const handleRoute = () => {
+    navigate("/view-charges");
+  };
 
   return (
     <div className="meetings-list">
@@ -34,10 +48,14 @@ const ListofMeeting = () => {
         <tr>
           <th className="header">Name</th>
           <th className="header">Date</th>
+          <th className="header">View</th>
         </tr>
         <tr>
           <td>Frontend meetup</td>
           <td>12th Sept 2022</td>
+          <td className="tableData">
+            <StyledButton onClick={handleRoute}>View charges</StyledButton>
+          </td>
         </tr>
         <tr>
           <td>Backend meetup</td>

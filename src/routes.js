@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Meetings from "./Pages/Meetings/Meetings";
 import AddMeeting from "./Pages/Meetings/AddMeeting";
 import Login from "./pages/Login";
+import ViewCharges from "./Pages/Charges/ViewCharges";
 
 const routes = [
   {
@@ -15,9 +16,15 @@ const routes = [
     component: <Meetings />
   },
   {
+
+    route: "/view-charges",
+    component: <ViewCharges />,
+  },
+{
     route: "/add-meeting",
     component: <AddMeeting />
   }
+
 ];
 
 function MainRoutes() {
