@@ -30,14 +30,12 @@ const ViewCharges = () => {
           </tr>
         </table>
       </div>
-      <Modal
-        openModal={openModal}
-        handleModal={handleModal}
-        onClick={(e) => {
-          e.stopPropagation();
-        }}
-      >
-        <Form>
+      <Modal openModal={openModal} handleModal={handleModal}>
+        <Form
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
+        >
           <Header>
             <Title>Add user</Title>
             <Icon onClick={handleModal}>x</Icon>
