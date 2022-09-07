@@ -1,5 +1,11 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 const ListofMeeting = () => {
+  let navigate = useNavigate();
+  const handleRoute = () => {
+    navigate("/view-charges");
+  };
+
   return (
     <div className="meetings-list">
       <div>
@@ -17,7 +23,7 @@ const ListofMeeting = () => {
           <td>Frontend meetup</td>
           <td>12th Sept 2022</td>
           <td className="tableData">
-            <Button>View charges</Button>
+            <Button onClick={handleRoute}>View charges</Button>
           </td>
         </tr>
       </table>
