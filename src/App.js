@@ -1,11 +1,20 @@
-import "./App.css";
+import React, { Suspense } from 'react';
+import Routes from './routes'
+import {BrowserRouter} from 'react-router-dom'
+import './App.css';
 
-function App() {
+const MainLayout = () => {
+
   return (
-    <div className="App">
-      <h2>Log in page</h2>
-    </div>
+        <Suspense
+          fallback={'Loading...'}
+        >
+          <BrowserRouter>
+          <Routes />
+          </BrowserRouter>
+          
+        </Suspense>
   );
-}
+};
 
-export default App;
+export default MainLayout;
