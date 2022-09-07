@@ -1,19 +1,28 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Meetings from './Pages/Meetings/Meetings'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Meetings from "./Pages/Meetings/Meetings";
+import Login from "./pages/Login";
 
 const routes = [
   {
-    route: '/meeting-list',
-    component: Meetings,
+    route: "/",
+    component: <Login />,
+  },
+
+  {
+    route: "/meeting-list",
+    component: <Meetings />,
   },
 ];
 
 function MainRoutes() {
-  return <Routes>
-     {routes.map((route, index) => 
-       <Route  key={index} path={'/meeting-list'} element={<Meetings />}></Route>)}
-  </Routes>;
+  return (
+    <Routes>
+      {routes.map(({ route, component }, index) => (
+        <Route exact key={index} path={route} element={component}></Route>
+      ))}
+    </Routes>
+  );
 }
 
 export default MainRoutes;
