@@ -11,8 +11,8 @@ const routes = [
 
 function MainRoutes() {
   return <Routes>
-     {routes.map((route, index) => 
-       <Route  key={index} path={'/meeting-list'} element={<Meetings />}></Route>)}
+     {routes.map((item, index) => 
+       <Route  key={index} path={item.route} element={<Meetings />}></Route>)}
   </Routes>;
 }
 

@@ -8,9 +8,14 @@
   text-align: center;
 }
 .meetings-list {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   padding: 24px;
+}
+.list-header{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 16px;
 }
 
 .table {

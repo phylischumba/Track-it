@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import Routes from './routes'
 import {BrowserRouter} from 'react-router-dom'
 import './App.css';
+import Navbar from './Pages/Navbar';
 
 const MainLayout = () => {
 
@@ -10,6 +11,7 @@ const MainLayout = () => {
           fallback={'Loading...'}
         >
           <BrowserRouter>
+          <Navbar />
           <Routes />
           </BrowserRouter>
           

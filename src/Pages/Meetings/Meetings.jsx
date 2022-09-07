@@ -1,7 +1,7 @@
 const ListofMeeting = () => {
   return (
     <div className="meetings-list">
-      <div>
+      <div className="list-header">
         <h3>List of Meetings</h3>
         <button>Add meeting</button>
       </div>
