@@ -1,16 +1,41 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+
 const ListofMeeting = () => {
   let navigate = useNavigate();
   const handleRoute = () => {
     navigate("/view-charges");
   };
 
+
+const StyledButton = styled.button`
+  background: #2a45cd;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  align-self: baseline;
+`;
+const StyledHeader = styled.h2`
+  font-size: 20px;
+  align-self: baseline;
+  @media only screen and (max-width: 768px) {
+    margin-bottom: 8px;
+  }
+`;
+
+const ListofMeeting = () => {
+  let navigate = useNavigate();
+
+
   return (
     <div className="meetings-list">
-      <div>
-        <h3>List of Meetings</h3>
-        <button>Add meeting</button>
+      <div className="list-header">
+        <StyledHeader>List of Meetings</StyledHeader>
+        <StyledButton onClick={() => navigate("/add-meeting")}>
+          Add meeting
+        </StyledButton>
       </div>
 
       <table className="table">
@@ -25,6 +50,10 @@ const ListofMeeting = () => {
           <td className="tableData">
             <Button onClick={handleRoute}>View charges</Button>
           </td>
+        </tr>
+        <tr>
+          <td>Backend meetup</td>
+          <td>15th Sept 2022</td>
         </tr>
       </table>
     </div>

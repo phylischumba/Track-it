@@ -59,7 +59,8 @@ const Form = styled.form`
   width: 30%;
   text-align: left;
   border-radius: 5px;
-  box-shadow: 0 0 3px;
+  border:1px solid rgba(1,1,1,0.4);
+  box-shadow: 0 1px 0 rgba(1,1,1,0.2);
   padding: 20px 30px;
   @media only screen and (max-width: 767px) {
     width: 80%;
@@ -71,10 +72,11 @@ const Label = styled.label`
   margin-bottom: 8px;
 `;
 const Input = styled.input`
-  outline: none;
+  outline:none;
+  border-radius:4px;
   width: 100%;
   padding: 8px 10px;
-  border: 2px solid #d3d3d3;
+  border: 1px solid rgba(1,1,1,0.5);
   font-size: 12px;
 `;
 const Box = styled.div`
