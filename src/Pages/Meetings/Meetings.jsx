@@ -1,13 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-const ListofMeeting = () => {
-  let navigate = useNavigate();
-  const handleRoute = () => {
-    navigate("/view-charges");
-  };
-
-
 const StyledButton = styled.button`
   background: #2a45cd;
   color: #fff;
@@ -24,10 +17,23 @@ const StyledHeader = styled.h2`
     margin-bottom: 8px;
   }
 `;
+const Button = styled.button`
+  padding: 4px 16px;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #2a45cd;
+`;
 
 const ListofMeeting = () => {
   let navigate = useNavigate();
 
+  const handleRoute = () => {
+    navigate("/view-charges");
+  };
 
   return (
     <div className="meetings-list">
@@ -61,13 +67,3 @@ const ListofMeeting = () => {
 };
 
 export default ListofMeeting;
-const Button = styled.button`
-  padding: 4px 16px;
-  outline: none;
-  border: none;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  border-radius: 5px;
-  background-color: #2a45cd;
-`;
