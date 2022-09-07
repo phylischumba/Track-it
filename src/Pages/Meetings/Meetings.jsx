@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { getMeetings } from "../../services/api.service";
+import { getMeetings } from "../../Services/api.service";
 import { useEffect, useState } from "react";
 
 const StyledButton = styled.button`

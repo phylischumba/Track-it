@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { login } from "../services/api.service";
-import { saveToLocalStorage } from "../utils";
+import { login } from "../Services/api.service";
+import { saveToLocalStorage } from "../Utils";
 
 const Login = () => {
   let navigate = useNavigate();
