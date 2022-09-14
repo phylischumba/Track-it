@@ -60,29 +60,28 @@ const AddMeeting = () => {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       title: name,
-      scheduled_at: date
-    }
-    createMeeting(data).then(response => {
-      // set saving state
-      if (response.status === 201) {
-        setError(false);
-        setSuccess(true);
-      }else{
+      scheduled_at: date,
+    };
+    createMeeting(data)
+      .then((response) => {
+        // set saving state
+        if (response.status === 201) {
+          setError(false);
+          setSuccess(true);
+        } else {
+          setError(true);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
         setError(true);
-      }
-
-    }).catch(error => {
-      console.log(error);
-      setError(true);
-      setSuccess(false);
-
-    })
-  }
+        setSuccess(false);
+      });
+  };
   return (
     <StyledDiv>
       <h2>Create meeting</h2>
@@ -93,7 +92,7 @@ const AddMeeting = () => {
           id="name"
           name="name"
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         <label htmlFor="date">Date:</label>
         <StyledInput
@@ -101,14 +100,20 @@ const AddMeeting = () => {
           id="date"
           name="date"
           value={date}
-          onChange={e => setDate(e.target.value)}
+          onChange={(e) => setDate(e.target.value)}
         />
-        <StyledButton onClick={(e) => handleSubmit(e)}>
-          Save
-        </StyledButton>
+        <StyledButton onClick={(e) => handleSubmit(e)}>Save</StyledButton>
 
-        {success && <Box><Success>Meeting created successfully</Success></Box>}
-        {error && <Box><Error>Failed to create meeting</Error></Box>}
+        {success && (
+          <Box>
+            <Success>Meeting created successfully</Success>
+          </Box>
+        )}
+        {error && (
+          <Box>
+            <Error>Failed to create meeting</Error>
+          </Box>
+        )}
       </StyledForm>
     </StyledDiv>
   );

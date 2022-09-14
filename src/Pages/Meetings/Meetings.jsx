@@ -38,27 +38,27 @@ const Div = styled.div`
 const ListofMeeting = () => {
   let navigate = useNavigate();
 
-  const handleRoute = () => {
-    navigate("/view-charges");
+  const handleRoute = (meetingUid) => {
+    navigate(`/view-charges/${meetingUid}`);
   };
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
     getMeetings()
-      .then(res => {
+      .then((res) => {
         if (res.status === 200) {
           setLoading(false);
           setData(res.data.data);
         }
       })
-      .catch(err => {
+      .catch((err) => {
         setLoading(false);
         console.log(err);
       });
   }, []);
 
-  const formatDate = date => {
+  const formatDate = (date) => {
     return new Date(date).toDateString();
   };
 
@@ -81,21 +81,20 @@ const ListofMeeting = () => {
         </thead>
         <tbody>
           {data.length && !loading
-            ? data.map((meet, index) =>
-                <tr key={index}>
-                  <td>
-                    {meet.title}
-                  </td>
-                  <td>
-                    {formatDate(meet.scheduled_at)}
-                  </td>
-                  <td className="tableData">
-                    <StyledButton onClick={handleRoute}>
-                      View charges
-                    </StyledButton>
-                  </td>
-                </tr>
-              )
+            ? data.map((meet, index) => {
+                console.log(meet, "meet");
+                return (
+                  <tr key={index}>
+                    <td>{meet.title}</td>
+                    <td>{formatDate(meet.scheduled_at)}</td>
+                    <td className="tableData">
+                      <StyledButton onClick={handleRoute(meet.meeting_uid)}>
+                        View charges
+                      </StyledButton>
+                    </td>
+                  </tr>
+                );
+              })
             : null}
         </tbody>
       </table>
