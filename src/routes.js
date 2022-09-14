@@ -8,31 +8,29 @@ import ViewCharges from "./Pages/Charges/ViewCharges";
 const routes = [
   {
     route: "/",
-    component: <Login />
+    component: <Login />,
   },
 
   {
     route: "/meeting-list",
-    component: <Meetings />
+    component: <Meetings />,
   },
   {
-
-    route: "/view-charges",
+    route: "/view-charges/:id",
     component: <ViewCharges />,
   },
-{
+  {
     route: "/add-meeting",
-    component: <AddMeeting />
-  }
-
+    component: <AddMeeting />,
+  },
 ];
 
 function MainRoutes() {
   return (
     <Routes>
-      {routes.map(({ route, component }, index) =>
+      {routes.map(({ route, component }, index) => (
         <Route key={index} path={route} element={component} />
-      )}
+      ))}
     </Routes>
   );
 }

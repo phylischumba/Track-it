@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Modal from "../../components/Modal";
 import styled from "styled-components";
-
+import AddCharges from "./AddCharges";
+import { useParams } from "react-router-dom";
 const ViewCharges = () => {
   const [openModal, setOpenModal] = useState(false);
   const handleModal = () => {
@@ -9,6 +10,8 @@ const ViewCharges = () => {
       return !prev;
     });
   };
+  let params = useParams();
+
   return (
     <>
       <div className="meetings-list">
@@ -31,34 +34,7 @@ const ViewCharges = () => {
         </table>
       </div>
       <Modal openModal={openModal} handleModal={handleModal}>
-        <Form
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          <Header>
-            <Title>Add user</Title>
-            <Icon onClick={handleModal}>x</Icon>
-          </Header>
-
-          <Box>
-            <Label>Username</Label>
-            <Input name="name" type="text" />
-          </Box>
-          <Box>
-            <Label>Amount</Label>
-            <Input name="amount" type="text" />
-          </Box>
-          <Box>
-            <Label>Status</Label>
-            <Select>
-              <option value="paid">Paid</option>
-              <option value="unpaid">Unpaid</option>
-            </Select>
-          </Box>
-
-          <Button type="submit">Add</Button>
-        </Form>
+        <AddCharges handleModal={handleModal} meetingId={params.id} />
       </Modal>
     </>
   );
@@ -84,7 +60,7 @@ const Button = styled.button`
     width: 100%;
   }
 `;
-const Title = styled.h2``;
+
 const FormHeader = styled.div`
   display: flex;
   justify-content: space-between;
